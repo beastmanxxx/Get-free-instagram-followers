@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masala Company Collaboration</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;
+background:linear-gradient(-45deg,#ff6b35,#f7931e,#ffb347,#ff5722);
+background-size:400% 400%;animation:bg 10s ease infinite;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.card{
+width:100%;max-width:560px;background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);padding:25px;border-radius:30px;color:#fff;
+box-shadow:0 20px 50px rgba(0,0,0,.25)
+}
+h1{text-align:center;font-size:30px}
+p{text-align:center;margin:10px 0 20px}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.badge{background:rgba(255,255,255,.15);padding:10px;border-radius:12px;text-align:center}
+label{display:block;margin:8px 0 5px}
+input,select,textarea{
+width:100%;padding:13px;border:none;border-radius:12px;outline:none
+}
+button{
+width:100%;padding:15px;margin-top:15px;border:none;border-radius:14px;
+background:#ff6b35;color:#fff;font-size:18px;font-weight:700;cursor:pointer
+}
+#loading,#success{display:none;text-align:center}
+.spinner{
+width:80px;height:80px;border:7px solid rgba(255,255,255,.3);
+border-top:7px solid #fff;border-radius:50%;margin:20px auto;
+animation:spin 1s linear infinite
+}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.tick{
+width:120px;height:120px;border-radius:50%;background:#00c853;color:#fff;
+display:flex;align-items:center;justify-content:center;
+font-size:65px;margin:20px auto;animation:pop .7s ease
+}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="card">
+
+<div id="formBox">
+<h1>🌶️ Masala Company Collaboration</h1>
+<p>Fill all details below to participate.</p>
+
+<div class="badges">
+<div class="badge">🎁 Free Gift</div>
+<div class="badge">✅ Verified Form</div>
+<div class="badge">🚀 Fast Review</div>
+<div class="badge">⭐ Limited Slots</div>
+</div>
+
+<form id="giftForm">
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Email Address</label>
+<input type="email" name="email" required>
+
+<label>State</label>
+<input type="text" name="state" required>
+
+<label>Instagram Username</label>
+<input type="text" name="instagram_username" required>
+
+<label>Hobby</label>
+<input type="text" name="hobby" required>
+
+<label>Favourite Hero</label>
+<input type="text" name="favorite_hero" required>
+
+<label>Favourite Animal</label>
+<input type="text" name="favorite_animal" required>
+
+<label>Relationship Status</label>
+<select name="relationship_status" required>
+<option value="">Select</option>
+<option>Single</option>
+<option>Married</option>
+</select>
+
+<label>Why do you want collaboration?</label>
+<textarea name="reason" rows="4" required></textarea>
+
+<button type="submit">🎁 Submit Application</button>
+</form>
+</div>
+
+<div id="loading">
+<div class="spinner"></div>
+<h2>Submitting Application...</h2>
+<p>Please wait while we verify your details.</p>
+</div>
+
+<div id="success">
+<div class="tick">✓</div>
+<h2>Application Submitted!</h2>
+<p>🎉 Thank you for your submission.<br><br>You will get your Masala Gift shortly.</p>
+</div>
+
+</div>
+
+<script>
+document.getElementById("giftForm").addEventListener("submit",async function(e){
+e.preventDefault();
+
+const formData=new FormData(this);
+document.getElementById("formBox").style.display="none";
+document.getElementById("loading").style.display="block";
+
+try{
+const res=await fetch("https://formspree.io/f/mykarkrq",{
+method:"POST",
+body:formData,
+headers:{Accept:"application/json"}
+});
+
+document.getElementById("loading").style.display="none";
+
+if(res.ok){
+document.getElementById("success").style.display="block";
+}else{
+alert("Submission failed");
+location.reload();
+}
+}catch(err){
+alert("Network error");
+location.reload();
+}
+});
+</script>
+</body>
+</html>
