@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Followers Form</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{
+min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;
+background:linear-gradient(-45deg,#833AB4,#FD1D1D,#F77737,#FCAF45);
+background-size:400% 400%;animation:bg 10s ease infinite;
+}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.card{
+width:100%;max-width:500px;background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);border-radius:25px;padding:25px;color:#fff;
+box-shadow:0 20px 50px rgba(0,0,0,.3)
+}
+h1{text-align:center;margin-bottom:10px}
+p{text-align:center;margin-bottom:20px}
+input,select{
+width:100%;padding:12px;margin:7px 0;border:none;border-radius:12px
+}
+button{
+width:100%;padding:14px;border:none;border-radius:12px;
+background:#ff2d75;color:#fff;font-weight:bold;cursor:pointer
+}
+#loading,#success{display:none;text-align:center}
+.tick{
+width:100px;height:100px;border-radius:50%;background:#00c853;
+margin:15px auto;display:flex;align-items:center;justify-content:center;
+font-size:60px;color:white;animation:pop .7s ease
+}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.spinner{
+width:70px;height:70px;border:6px solid rgba(255,255,255,.3);
+border-top:6px solid white;border-radius:50%;margin:20px auto;
+animation:spin 1s linear infinite
+}
+@keyframes spin{100%{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="card">
+<div id="formBox">
+<h1>🎁 Get 1000 Instagram Followers FREE</h1>
+<p>Fill the form below</p>
+<form id="f">
+<input required placeholder="Full Name">
+<input type="email" required placeholder="Email">
+<input required placeholder="State">
+<input required placeholder="Instagram Username">
+<input required placeholder="Hobby">
+<input required placeholder="Favourite Hero">
+<input required placeholder="Favourite Animal">
+<select required>
+<option value="">Relationship Status</option>
+<option>Single</option>
+<option>Married</option>
+</select>
+<button type="submit">🚀 CLAIM NOW</button>
+</form>
+</div>
+
+<div id="loading">
+<div class="spinner"></div>
+<h2>Verifying Request...</h2>
+</div>
+
+<div id="success">
+<div class="tick">✓</div>
+<h2>Submitted Successfully!</h2>
+<p>You get your 1000 Instagram followers shortly.</p>
+</div>
+</div>
+
+<script>
+document.getElementById("f").onsubmit=function(e){
+e.preventDefault();
+formBox.style.display="none";
+loading.style.display="block";
+setTimeout(()=>{
+loading.style.display="none";
+success.style.display="block";
+},2500);
+}
+</script>
+</body>
+</html>
