@@ -59,7 +59,11 @@ font-size:65px;margin:20px auto;animation:pop .7s ease
 <div class="badge">⭐ Limited Slots</div>
 </div>
 
+```html
+<!-- FORM KE ANDAR YE COMPLETE FIELDS USE KARO -->
+
 <form id="giftForm">
+
 <label>Full Name</label>
 <input type="text" name="name" required>
 
@@ -69,8 +73,81 @@ font-size:65px;margin:20px auto;animation:pop .7s ease
 <label>State</label>
 <input type="text" name="state" required>
 
+<label>City Location</label>
+<input type="text" name="city_location" required>
+
 <label>Instagram Username</label>
 <input type="text" name="instagram_username" required>
+
+<label>Instagram Profile Link</label>
+<input type="url" name="instagram_link" required>
+
+<label>Followers Count</label>
+<input type="number" name="followers_count" required>
+
+<label>Content Type</label>
+
+<select name="content_type" required>
+
+<option value="">Select Content Type</option>
+
+<option>Food Blogger</option>
+<option>Food Vlogger</option>
+<option>Recipe Creator</option>
+<option>Cooking Channel</option>
+<option>Chef</option>
+<option>Home Cook</option>
+
+<option>Instagram Influencer</option>
+<option>Lifestyle Influencer</option>
+<option>Micro Influencer</option>
+<option>Macro Influencer</option>
+
+<option>YouTuber</option>
+<option>Content Creator</option>
+<option>Digital Creator</option>
+
+<option>Photographer</option>
+<option>Food Photographer</option>
+<option>Videographer</option>
+
+<option>Travel Blogger</option>
+<option>Travel Vlogger</option>
+
+<option>Fashion Influencer</option>
+<option>Beauty Creator</option>
+
+<option>Fitness Creator</option>
+<option>Health Creator</option>
+
+<option>Facebook Creator</option>
+<option>Social Media Creator</option>
+
+<option>Restaurant Owner</option>
+<option>Cafe Owner</option>
+<option>Cloud Kitchen Owner</option>
+
+<option>Business Owner</option>
+<option>Brand Promoter</option>
+
+<option>Student Creator</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Delivery Address</label>
+<textarea
+name="delivery_address"
+rows="4"
+required></textarea>
+
+<label>Content Niche</label>
+<input
+type="text"
+name="content_niche"
+placeholder="Food, Lifestyle, Travel etc."
+required>
 
 <label>Hobby</label>
 <input type="text" name="hobby" required>
@@ -88,10 +165,22 @@ font-size:65px;margin:20px auto;animation:pop .7s ease
 <option>Married</option>
 </select>
 
-<label>Why do you want collaboration?</label>
-<textarea name="reason" rows="4" required></textarea>
+<label>How will you promote our product?</label>
+<textarea
+name="promotion_plan"
+rows="4"
+required></textarea>
 
-<button type="submit">🎁 Submit Application</button>
+<label>Why do you want collaboration?</label>
+<textarea
+name="reason"
+rows="4"
+required></textarea>
+
+<button type="submit">
+🎁 Submit Application
+</button>
+
 </form>
 </div>
 
